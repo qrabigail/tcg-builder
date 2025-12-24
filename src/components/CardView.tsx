@@ -13,7 +13,9 @@ export const CardView = ({ card }: Props) => {
     <div> 
       <Card>
         <CardTitle>{card.name}</CardTitle>
-        <CardContent>{card.level}</CardContent>
+        <CardContent>
+          {Object.entries(card).map((key, _) => {return <p>{`${key}`}</p>})}
+        </CardContent>
       </Card>
     </div>
   );

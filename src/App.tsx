@@ -2,6 +2,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { AddCardForm } from './components/AddCardForm';
 import { CardView } from './components/CardView';
 import { db } from './db';
+import { ResetDatabaseButton } from './components/ResetDatabaseButton';
 
 function App() {
   const cards = useLiveQuery(
@@ -13,6 +14,7 @@ function App() {
     <div>
       <AddCardForm/>
       {cards?.map(card => <CardView card={card}/>)}
+      <ResetDatabaseButton/>
     </div>
   );
 }
