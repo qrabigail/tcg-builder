@@ -1,4 +1,4 @@
-import { TodoDB } from './TodoDB';
+import { CardDb } from './CardDb';
 
-export const db = new TodoDB();
+export const db = new CardDb();
 
