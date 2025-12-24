@@ -46,17 +46,15 @@ export default defineConfig(({ command }) => {
         srcDir: 'src',
         filename: 'sw.ts',
         manifest: {
-          // TODO: Customize your PWA manifest for production
-          // 1. Change app name and description to match your app
-          name: 'Dexie Cloud ToDo Sample App',
-          short_name: 'DexieCloudToDo',
-          description: 'A todo app demonstrating Dexie Cloud with Vite',
+          name: 'Generic Card Builder',
+          short_name: 'TcgBuilder',
+          description: 'just a generic tcg that the developers made up for this',
           
           // TODO: Update theme colors to match your brand
           // (For complete manifest properties reference, see:
           //  https://developer.mozilla.org/en-US/docs/Web/Manifest)
           theme_color: '#000000',
-          background_color: '#ffffff',
+          background_color: 'rgba(142, 142, 142, 0.73)',
           display: 'standalone',
           start_url: './',
           
