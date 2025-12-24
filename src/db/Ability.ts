@@ -4,9 +4,9 @@ export interface Ability {
 }
 
 export enum AbilityType {
-    Combat,
-    Enter,
-    Exit,
-    Static,
-    Support
+    Combat = "Combat",
+    In = "In",
+    Out = "Out",
+    Static = "Static",
+    Support = "Support"
 }
