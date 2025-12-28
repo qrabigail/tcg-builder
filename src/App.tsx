@@ -11,9 +11,9 @@ function App() {
       .toArray()
   );
   return (
-    <div>
+    <div className='p-10'>
       <AddCardForm/>
-      {cards?.map(card => <CardView card={card}/>)}
+      {cards?.map((card, index) => <CardView card={card} key={`card-${index}`}/>)}
       <ResetDatabaseButton/>
     </div>
   );

@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
 import { Card as TradingCard, db } from '../db';
-import { cn } from '../lib/utils';
 import { Card, CardContent, CardTitle } from './ui/card';
 
 interface Props {
@@ -10,13 +8,11 @@ interface Props {
 export const CardView = ({ card }: Props) => {
   
   return (
-    <div> 
-      <Card>
+      <Card className='m-4'>
         <CardTitle>{card.name}</CardTitle>
         <CardContent>
-          {Object.entries(card).map((key, _) => {return <p>{`${key}`}</p>})}
+          {Object.entries(card).map((key, i) => {return <p key={i}>{`${JSON.stringify(key)}`}</p>})}
         </CardContent>
       </Card>
-    </div>
   );
 }
