@@ -3,6 +3,7 @@ import { AddCardForm } from './components/AddCardForm';
 import { CardView } from './components/CardView';
 import { db } from './db';
 import { ResetDatabaseButton } from './components/ResetDatabaseButton';
+import { ExportDatabaseButton } from './components/ExportDatabaseButton';
 
 function App() {
   const cards = useLiveQuery(
@@ -13,6 +14,7 @@ function App() {
   return (
     <div className='p-10'>
       <AddCardForm/>
+      <ExportDatabaseButton/>
       {cards?.map((card, index) => <CardView card={card} key={`card-${index}`}/>)}
       <ResetDatabaseButton/>
     </div>

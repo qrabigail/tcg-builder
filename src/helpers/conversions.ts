@@ -207,7 +207,7 @@ const convertAttack2NileFmt = (attack: Attack, index: number) => {
     [`attack${index}cost`]: attack.cost,
     [`attack${index}name`]: attack.name, 
     [`attack${index}hasdmg`]: attack.damage > 0 ? true : false,
-    [`attack${index}dmg`]: attack.damage.toString,
+    [`attack${index}dmg`]: attack.damage? attack.damage.toString() : 0,
     [`attack${index}effect`]: attack.effect,
  }
 }
@@ -253,4 +253,12 @@ export const convert2DB = (card: SpreadsheetCard): Omit<Card, "id"> => {
         version: card.version,
         slots: [] // todo slots
     }
+}
+
+export const convert2CSV = (cards: SpreadsheetCard[]) => {
+    const header = Object.keys(cards[0])
+    const rows = cards.map(card => {
+        return Object.values(card)
+    }).join('\n')
+    return [header, rows].join('\n')
 }
