@@ -12,5 +12,5 @@ export interface Card {
     type: string; // TODO: should this be an enum?
     version: string;
     slots: Array<Ability | Attack>
-    trigger?: string;
+    trigger: string;
 }
