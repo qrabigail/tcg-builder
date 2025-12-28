@@ -1,36 +1,38 @@
 import { Ability, AbilityType, Card as TradingCard } from "../db"
-import { UseFieldArrayUpdate, useForm } from "react-hook-form"
-import { CardContent } from "./ui/card"
-import { Input } from "./ui/input"
+import {  UseFieldArrayUpdate, UseFormRegister } from "react-hook-form"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
+import { Textarea } from "./ui/textarea"
 
 export interface AbilityFormProps {
+    register: UseFormRegister<TradingCard>
     update: UseFieldArrayUpdate<TradingCard, "slots">
     index: number
     value: Ability
 }
-export const AbilityForm = ({value, index, update}: AbilityFormProps) => {
-
-  const {
-    register,
-    watch,
-    formState: { errors },
-  } = useForm<Ability>()
-
+export const AbilityForm = ({value, index, register, update}: AbilityFormProps) => {
+  // todo ability type is not propogating
   return (
-      <CardContent className="space-y-4">
-        <Select defaultValue={value.type} {...register("type", { required: true })}>
-          <SelectTrigger className="w-[180px]">
+      <div>
+        <Select 
+          defaultValue={value.type} 
+          {...register(`slots.${index}.type`, { required: true })} 
+          onValueChange={(type) => update(index, {...value, type: type as AbilityType})}
+        >
+          <SelectTrigger >
             <SelectValue placeholder="Ability Type" />
           </SelectTrigger>
           <SelectContent>
-            {Object.keys(AbilityType).map(
-              (type) => {return <SelectItem value={type}>{type}</SelectItem>}
-            )}
+            <SelectItem value={AbilityType.Combat}>Combat</SelectItem>
+            <SelectItem value={AbilityType.Death}>Death</SelectItem>
+            <SelectItem value={AbilityType.In}>In</SelectItem>
+            <SelectItem value={AbilityType.Out}>Out</SelectItem>
+            <SelectItem value={AbilityType.Static}>Static</SelectItem>
+            <SelectItem value={AbilityType.Support}>Support</SelectItem>
           </SelectContent>
         </Select>
-        <Input placeholder="effect text" defaultValue={value.effect} {...register("effect", { required: true })} />
-      </CardContent>
+
+        <Textarea placeholder="effect text" defaultValue={value.effect} {...register(`slots.${index}.effect`, { required: true })} />
+      </div>
 
   )
 }
