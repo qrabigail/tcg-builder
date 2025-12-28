@@ -4,9 +4,7 @@ This project is built with [Vite](https://vitejs.dev/) and uses TypeScript and R
 
 ## How to use the sample
 
-**[You can open a deployed version of this PWA at https://dexie.github.io/Dexie.js/dexie-cloud-todo-app](https://dexie.github.io/Dexie.js/dexie-cloud-todo-app)**
-
-If you just want to see the app in action, navigate to the [pre-built published version](https://dexie.github.io/Dexie.js/dexie-cloud-todo-app/).
+If you just want to see the app in action, navigate to the [pre-built published version](https://dexie.github.io/Dexie.js/tcg-app/).
 
 If you want to build and play with it locally, follow these steps:
 
@@ -31,7 +29,7 @@ The easiest way to test the full PWA experience is to deploy the app:
 1. `npm run build && npm run preview` (local production preview). The production build is previewed on port 3001
 2. Or deploy with: `npm run deploy` (will publish the app to your gh-pages branch of your Dexie.js fork)
 3. `npx dexie-cloud whitelist https://your-github-username.github.io` (replace `your-github-username`)
-4. Voila: Go to https://your-github-username.github.io/Dexie.js/dexie-cloud-todo-app/ from your browser. This is a full installable PWA that you can add to your start screen on a mobile phone.
+4. Voila: Go to https://your-github-username.github.io/Dexie.js/tcg-app/ from your browser. This is a full installable PWA that you can add to your start screen on a mobile phone.
 
 Dexie Cloud works both with and without a service worker but there are some benefits of activating the service worker:
 
@@ -42,10 +40,10 @@ Dexie Cloud works both with and without a service worker but there are some bene
 ## Disabling Service Worker
 
 To disable Dexie Cloud from using its service worker (for syncing data):
-* Remove `tryUseServiceWorker: true` from `db.cloud.configure()` in [src/db/TodoDB.ts](https://github.com/dfahlander/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/db/TodoDB.ts)
+* Remove `tryUseServiceWorker: true` from `db.cloud.configure()` in [src/db/TodoDB.ts](https://github.com/dfahlander/Dexie.js/blob/master/samples/tcg-app/src/db/TodoDB.ts)
 
 To disable the application from using service worker (for caching resources):
-* Remove the `serviceWorkerRegistration.register();` call from [src/index.tsx](https://github.com/dfahlander/Dexie.js/blob/master/samples/dexie-cloud-todo-app/src/index.tsx)
+* Remove the `serviceWorkerRegistration.register();` call from [src/index.tsx](https://github.com/dfahlander/Dexie.js/blob/master/samples/tcg-app/src/index.tsx)
 * Or set `registerType: 'disabled'` in the VitePWA plugin configuration in `vite.config.ts`
 
 ## Available Scripts
@@ -96,7 +94,7 @@ This allows you to test the built app before deployment, including the service w
 
 ### `npm run deploy`
 
-Deploys the built app to gh-pages branch of this github repository under the folder /dexie-cloud-todo-app/.
+Deploys the built app to gh-pages branch of this github repository under the folder /tcg-app/.
 
 ## Learn More
 

@@ -1,15 +1,16 @@
 {
-  "name": "dexie-cloud-todo-app",
+  "name": "tcg-app",
   "version": "2.0.2",
   "type": "module",
   "private": true,
   "dependencies": {
+    "@radix-ui/react-select": "^2.2.6",
     "dexie": "^4.2.1",
     "dexie-cloud-addon": "^4.2.2",
     "dexie-react-hooks": "^4.2.0",
     "lucide-react": "^0.554.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
     "react-hook-form": "^7.69.0",
     "react-use": "^17.6.0",
     "typescript": "^5.9.3",
@@ -27,7 +28,7 @@
     "build:check": "tsc && vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -e dexie-cloud-todo-app",
+    "deploy": "gh-pages -d build -e tcg-app",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui"
