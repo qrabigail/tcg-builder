@@ -45,7 +45,8 @@ export const AddCardForm = () => {
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-w-xl">
           <div className="grid grid-cols-2 gap-2">
-            <Input className="col-span-2" placeholder="name" {...register("name", { required: true })} />
+            <Input placeholder="name" {...register("name", { required: true })} />
+            <Input placeholder="art" {...register("art")} />
 
             <Input className="" placeholder="speed" {...register("speed", { required: true })} />
             <Input className="" placeholder="level" {...register("level", { required: true })} />
